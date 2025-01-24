@@ -1,5 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
+import { Card } from './components/Card';
+import { Testimonial } from './components/Testimonial';
 
 function App() {
     return (
@@ -106,7 +108,7 @@ function App() {
                                     display: 'flex',
                                     alignItems: 'baseline',
                                     justifyContent: 'space-between',
-                                    padding: '30px 0 10px'
+                                    padding: '30px 0 10px',
                                 }}
                             >
                                 <h2>This week specials</h2>
@@ -117,21 +119,62 @@ function App() {
                                     name="Mediterranean Bliss Salad"
                                     description="A vibrant mix of fresh greens, cherry tomatoes, cucumbers, red onions, Kalamata olives, and feta cheese, drizzled with our signature lemon-herb vinaigrette. Served with warm pita bread on the side."
                                     price={13.95}
+                                    photo='https://media.istockphoto.com/id/2160026798/es/foto/ensalada-de-verano-de-burrata-y-melocotones-fondo-blanco.webp?a=1&b=1&s=612x612&w=0&k=20&c=iUOraPZYsQKTacLIKJnV9ZPF17HJpXLLDlJekUGSNVY='
                                 />
                                 <Card
                                     name="Chicago Classic Pizza"
                                     description="Our deep-dish pizza features a buttery crust loaded with mozzarella cheese, rich tomato sauce, and your choice of classic toppings like pepperoni, Italian sausage, or fresh vegetables."
                                     price={19.95}
+                                    photo='https://media.istockphoto.com/id/1198079266/es/foto/pizza-deluxe-con-pepperoni-salchicha-champi%C3%B1ones-y-pimientos.webp?a=1&b=1&s=612x612&w=0&k=20&c=n2Kdun7TgPAF1ArpIlyzV7ub36kB2YPGp2ojjyTK4K0='
                                 />
                                 <Card
                                     name="Grilled Chicken Alfredo"
                                     description="Juicy grilled chicken breast served over a bed of fettuccine pasta tossed in a creamy Alfredo sauce, topped with fresh Parmesan and parsley. Served with garlic bread."
                                     price={17.95}
+                                    photo='https://media.istockphoto.com/id/622185412/es/foto/filetes-de-pollo-frito-y-verduras-sobre-fondo-de-madera.webp?a=1&b=1&s=612x612&w=0&k=20&c=4r0LBEfmSd4dk6WoKksnezCYysgV620JxD-HiGj9n_o='
                                 />
                             </div>
                         </div>
                     </section>
-                    <section>Testimonials</section>
+                    <section
+                        className="row justify-content-center highlights"
+                        style={{ padding: '100px 0' }}
+                    >
+                        <div className="col-lg-8">
+                            <div
+                                className="text-center"
+                                style={{ padding: '30px 0' }}
+                            >
+                                <h2>Testimonials</h2>
+                            </div>
+                            <div className="row">
+                                <Testimonial
+                                    name="Emma"
+                                    review="This place is a gem! The Mediterranean Bliss Salad was so fresh and flavorful, and the staff was incredibly friendly. I’ll definitely be coming back for more!"
+                                    rating={4}
+                                    photo="https://randomuser.me/api/portraits/women/0.jpg"
+                                />
+                                <Testimonial
+                                    name="Michael R."
+                                    review="The Chicago Classic Pizza is hands down the best deep-dish I’ve ever had. The crust was perfect, and the toppings were so fresh. Highly recommend!"
+                                    rating={4}
+                                    photo="https://randomuser.me/api/portraits/men/32.jpg"
+                                />
+                                <Testimonial
+                                    name="Sophia T."
+                                    review="I stopped in for lunch and was blown away by the variety on the menu. The Grilled Chicken Alfredo was creamy and delicious. Great portion sizes too!"
+                                    rating={4}
+                                    photo="https://randomuser.me/api/portraits/women/65.jpg"
+                                />
+                                <Testimonial
+                                    name="James K."
+                                    review="Fantastic atmosphere and great food! Everything we tried was cooked to perfection, and the service was top-notch. A must-visit in Chicago!"
+                                    rating={5}
+                                    photo="https://randomuser.me/api/portraits/men/21.jpg"
+                                />
+                            </div>
+                        </div>
+                    </section>
                     <section>About</section>
                 </article>
             </main>
@@ -142,24 +185,4 @@ function App() {
 
 export default App;
 
-const Card = ({ name, description, price }) => {
-    return (
-        <div className="col-md-4">
-            <div style={{ gap: '10px', padding: '18px' }} className="card">
-                <img src="https://dummyimage.com/200x200/fff/000" alt={name} />
-                <div
-                    style={{
-                        display: 'flex',
-                        alignItems: 'baseline',
-                        justifyContent: 'space-between',
-                    }}
-                >
-                    <h5>{name}</h5>
-                    <div>${price}</div>
-                </div>
-                <div>{description}</div>
-                <a href="/">Order a delivery</a>
-            </div>
-        </div>
-    );
-};
+
