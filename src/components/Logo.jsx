@@ -3,7 +3,7 @@ export const Logo = () => {
         <a class="logo" href="/">
             <img
                 height={60}
-                src="/images/725cbe0ca5da8536fc99c51e00d4d13628bd9745.jpg"
+                src="/images/Logo.svg"
                 alt="Logo"
             />
         </a>
