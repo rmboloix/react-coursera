@@ -1,0 +1,22 @@
+:root {
+    --primary-color-A: #495e57;
+    --primary-color-B: #f4ce14;
+    --secondary-color-A: #ee9972;
+    --secondary-color-B: #fbdabb;
+    --highlight-color-A: #edefee;
+    --highlight-color-B: #333333;
+    --background: #edefee;
+}
+
+body {
+    background-color: var(--background);
+}
+
+section.hero {
+    background-color: var(--primary-color-A);
+    color: #ffffff;
+}
+
+header .logo img {
+    padding: 10px 50px 10px 10px;
+}
