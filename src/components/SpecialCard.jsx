@@ -10,7 +10,7 @@ export const SpecialCard = ({ name, price, description, image }) => {
                 <p>{description}</p>
             </main>
             <footer>
-                <a href="/booking" role="button" className="button">
+                <a href="/booking" role="button" className="button-link">
                     Order delivery
                 </a>
             </footer>

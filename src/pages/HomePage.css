@@ -90,6 +90,12 @@ header nav ul li a:hover {
 }
 
 .hero .button {
+    color: var(--primary-color-A);
+}
+
+.button {
+    text-decoration: inherit;
+    color: inherit;
     padding: 10px 20px;
     font-size: 16px;
     background-color: var(--primary-color-B);
@@ -103,13 +109,21 @@ header nav ul li a:hover {
     width: fit-content;
 }
 
-.button {
-    text-decoration: inherit;
-    color: inherit;
-}
-
 .button:hover {
     border: 4px solid var(--highlight-color-B);
+}
+
+.button-link {
+    text-decoration: inherit;
+    color: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button-link:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 4px;
+    text-decoration-skip-ink: none;
 }
 
 /* Specials Section */
@@ -121,6 +135,7 @@ header nav ul li a:hover {
     font-size: 2rem;
     text-align: center;
     margin-bottom: 20px;
+    color: var(--primary-color-A);
 }
 
 .specials-grid {
@@ -151,14 +166,12 @@ header nav ul li a:hover {
 }
 
 .special-card header {
-    /* display: flex;
-    justify-content: space-between;
-    align-items: center; */
     padding: 20px 0;
 }
 
 .special-card h3 {
     font-size: 1rem;
+    color: var(--primary-color-A);
 }
 
 .special-card p {
@@ -166,25 +179,17 @@ header nav ul li a:hover {
     margin-bottom: 10px;
 }
 
-.special-card .button {
-    padding: 10px 20px 10px 0;
-    font-size: 14px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
 .special-card footer {
     padding: 0;
     margin: 0;
 }
 
-.special-card .button:hover {
-    text-decoration: underline;
-    text-decoration-thickness: 4px;
-    text-decoration-skip-ink: none;
+.specials .button-container {
+    display: flex;
+    justify-content: end;
+    padding: 10px 0;
 }
+
 
 /* Testimonials Section */
 .testimonials {

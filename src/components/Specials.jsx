@@ -4,6 +4,9 @@ export const Specials = () => {
     return (
         <section className="specials">
             <h2>Week specials!</h2>
+            <div className='button-container'>
+                <a href="/booking" role="button" className='button'>Order Online</a>
+            </div>
             <section className="specials-grid">
                 <SpecialCard
                     name="Mediterranean Bliss Salad"
