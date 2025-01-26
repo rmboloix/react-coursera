@@ -62,7 +62,7 @@ header nav ul li a {
     color: var(--highlight-color-B);
 }
 
-header nav ul li a:hover {
+header nav ul li a:hover, header nav ul li.active {
     text-decoration: underline;
     text-decoration-thickness: 2px;
 }
@@ -87,6 +87,7 @@ header nav ul li a:hover {
 
 .hero img {
     border-radius: 8px;
+    width: 100%;
 }
 
 .hero .button {

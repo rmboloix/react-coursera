@@ -6,7 +6,7 @@ export const Header = () => {
             <Logo />
             <nav>
                 <ul className="nav-links">
-                    <li>
+                    <li className="active">
                         <a aria-current="page" href="/">
                             Home
                         </a>
