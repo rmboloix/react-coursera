@@ -8,7 +8,7 @@ import './HomePage.css';
 
 export const HomePage = () => {
     return (
-        <>
+        <main className='container'>
             <Header />
             <main>
                 <Hero />
@@ -17,6 +17,6 @@ export const HomePage = () => {
                 <AboutUs />
             </main>
             <Footer />
-        </>
+        </main>
     );
 };
