@@ -3,7 +3,7 @@ body {
 }
 
 .logo {
-    padding-right: 50px;
+    padding: 10px 50px 10px 10px;
 }
 
 .main-header {
@@ -17,12 +17,35 @@ section.hero {
     min-height: 300px;
 }
 
+footer {
+    background-color: #495e57;
+    color: white;
+    padding: 40px 0;
+}
+
+footer ul {
+    list-style: none;
+    list-style-type: none;
+    padding: 0;
+}
+
+footer nav ul li a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+footer nav ul li a:hover {
+    text-decoration:underline;
+    text-decoration-thickness: 2px;
+}
+
 .button {
     background: #f4ce14;
     padding: 10px;
     border-radius: 4px;
     color: #495e57;
     font-weight: bold;
+    border: 4px solid white;
 }
 
 h2,
