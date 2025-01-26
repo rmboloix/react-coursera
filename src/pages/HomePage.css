@@ -190,7 +190,6 @@ header nav ul li a:hover {
     padding: 10px 0;
 }
 
-
 /* Testimonials Section */
 .testimonials {
     margin: 40px 0;
@@ -199,7 +198,10 @@ header nav ul li a:hover {
 
 .testimonials h2 {
     font-size: 2rem;
+    text-align: center;
     margin-bottom: 20px;
+    color: var(--primary-color-A);
+    padding: 60px 0 10px;
 }
 
 .testimonials-grid {
@@ -209,11 +211,28 @@ header nav ul li a:hover {
 }
 
 .testimonial-card {
+    color: var(--highlight-color-B);
     background-color: #f4f4f4;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.testimonial-card header {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+    padding: 10px 0;
+}
+
+.testimonial-card p {
+    text-align: left;
+    color: var(--highlight-color-B);
 }
 
 /* Footer */
