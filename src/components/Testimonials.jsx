@@ -39,7 +39,7 @@ export const TestimonialCard = ({ name, review, rating, image }) => {
                 Rating: {rating}/5 {'⭐'.repeat(rating)}
             </div>
             <header>
-                <img src={image} width={60} />
+                <img src={image} width={60} alt={name}/>
                 {name}
             </header>
             <main>

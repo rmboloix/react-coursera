@@ -1,7 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import { Card } from './components/Card';
-import { Testimonial } from './components/Testimonial';
 import { Footer } from './components/Footer';
 
 function App() {
@@ -148,32 +147,7 @@ function App() {
                             >
                                 <h2>Testimonials</h2>
                             </div>
-                            <div className="row">
-                                <Testimonial
-                                    name="Emma"
-                                    review="This place is a gem! The Mediterranean Bliss Salad was so fresh and flavorful, and the staff was incredibly friendly. I’ll definitely be coming back for more!"
-                                    rating={4}
-                                    photo="https://randomuser.me/api/portraits/women/0.jpg"
-                                />
-                                <Testimonial
-                                    name="Michael R."
-                                    review="The Chicago Classic Pizza is hands down the best deep-dish I’ve ever had. The crust was perfect, and the toppings were so fresh. Highly recommend!"
-                                    rating={4}
-                                    photo="https://randomuser.me/api/portraits/men/32.jpg"
-                                />
-                                <Testimonial
-                                    name="Sophia T."
-                                    review="I stopped in for lunch and was blown away by the variety on the menu. The Grilled Chicken Alfredo was creamy and delicious. Great portion sizes too!"
-                                    rating={4}
-                                    photo="https://randomuser.me/api/portraits/women/65.jpg"
-                                />
-                                <Testimonial
-                                    name="James K."
-                                    review="Fantastic atmosphere and great food! Everything we tried was cooked to perfection, and the service was top-notch. A must-visit in Chicago!"
-                                    rating={5}
-                                    photo="https://randomuser.me/api/portraits/men/21.jpg"
-                                />
-                            </div>
+                            <div className="row"></div>
                         </div>
                     </section>
                     <section
