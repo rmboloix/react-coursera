@@ -260,13 +260,36 @@ footer {
     margin-top: 40px;
 }
 
-footer .footer-grid {
+footer.footer-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 20px;
+    align-items: start;
+    background-color: var(--primary-color-A);
+    color: var(--highlight-color-A);
 }
 
 footer p {
     font-size: 14px;
     line-height: 1.5;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    padding: 5px 0;
+}
+
+footer ul li a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+footer nav ul li a:hover,
+footer nav ul li.active {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
 }

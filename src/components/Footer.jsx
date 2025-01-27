@@ -1,45 +1,40 @@
 export const Footer = () => {
     return (
-        <footer className="row justify-content-center">
-            <div className="col-lg-2">
+        <footer className="footer-grid">
+            <div>
                 <a class="logo" href="/">
                     <img height={60} src="/images/logo2.png" alt="Logo" />
                 </a>
             </div>
-            <div className="col-lg-2">
-                <nav>
-                    <ul>
-                        <li>
-                            <a href="/">Home</a>
-                        </li>
-                        <li>
-                            <a href="/">About</a>
-                        </li>
-                        <li>
-                            <a href="/">Menu</a>
-                        </li>
-                        <li>
-                            <a href="/">Reservations</a>
-                        </li>
-                        <li>
-                            <a href="/">Order Online</a>
-                        </li>
-                        <li>
-                            <a href="/">Login</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-            <div className="col-lg-2">
+            <nav>
                 <ul>
-                    <li>1234 W Grand Avenue, Chicago, IL 60654</li>
-                    <li>(312) 555-7890</li>
-                    <li>contact@tasteofchicago.com</li>
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="/">About</a>
+                    </li>
+                    <li>
+                        <a href="/">Menu</a>
+                    </li>
+                    <li>
+                        <a href="/">Reservations</a>
+                    </li>
+                    <li>
+                        <a href="/">Order Online</a>
+                    </li>
+                    <li>
+                        <a href="/">Login</a>
+                    </li>
                 </ul>
-            </div>
-            <div className="col-lg-2">
-                <div>Social links</div>
-                <div>
+            </nav>
+            <ul>
+                <li>1234 W Grand Avenue, Chicago, IL 60654</li>
+                <li>(312) 555-7890</li>
+                <li>contact@tasteofchicago.com</li>
+            </ul>
+            <ul>
+                <li>
                     <a href="/">
                         <img
                             width="32"
@@ -47,6 +42,8 @@ export const Footer = () => {
                             alt="facebook"
                         />
                     </a>
+                </li>
+                <li>
                     <a href="/">
                         <img
                             width="32"
@@ -54,8 +51,8 @@ export const Footer = () => {
                             alt="linkedin"
                         />
                     </a>
-                </div>
-            </div>
+                </li>
+            </ul>
         </footer>
     );
 };
