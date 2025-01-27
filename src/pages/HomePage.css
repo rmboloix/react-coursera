@@ -62,7 +62,8 @@ header nav ul li a {
     color: var(--highlight-color-B);
 }
 
-header nav ul li a:hover, header nav ul li.active {
+header nav ul li a:hover,
+header nav ul li.active {
     text-decoration: underline;
     text-decoration-thickness: 2px;
 }
@@ -234,6 +235,22 @@ header nav ul li a:hover, header nav ul li.active {
 .testimonial-card p {
     text-align: left;
     color: var(--highlight-color-B);
+}
+
+/** About us */
+
+.about-us {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    color: var(--highlight-color-B);
+}
+
+.about-us h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color-A);
 }
 
 /* Footer */
