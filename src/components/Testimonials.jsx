@@ -7,25 +7,25 @@ export const Testimonials = () => {
                     name="Emma"
                     review="This place is a gem! The Mediterranean Bliss Salad was so fresh and flavorful, and the staff was incredibly friendly. I’ll definitely be coming back for more!"
                     rating={4}
-                    image="https://randomuser.me/api/portraits/women/0.jpg"
+                    image="/images/emma.jpg"
                 />
                 <TestimonialCard
                     name="Michael R."
                     review="The Chicago Classic Pizza is hands down the best deep-dish I’ve ever had. The crust was perfect, and the toppings were so fresh. Highly recommend!"
                     rating={4}
-                    image="https://randomuser.me/api/portraits/men/32.jpg"
+                    image="/images/michael.jpg"
                 />
                 <TestimonialCard
                     name="Sophia T."
                     review="I stopped in for lunch and was blown away by the variety on the menu. The Grilled Chicken Alfredo was creamy and delicious. Great portion sizes too!"
                     rating={4}
-                    image="https://randomuser.me/api/portraits/women/65.jpg"
+                    image="/images/sophia.jpg"
                 />
                 <TestimonialCard
                     name="James K."
                     review="Fantastic atmosphere and great food! Everything we tried was cooked to perfection, and the service was top-notch. A must-visit in Chicago!"
                     rating={5}
-                    image="https://randomuser.me/api/portraits/men/21.jpg"
+                    image="/images/james.jpg"
                 />
             </section>
         </section>
