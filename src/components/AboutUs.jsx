@@ -21,7 +21,7 @@ export const AboutUs = () => {
                     with love and every guest is family!
                 </p>
             </article>
-            <img src="/images/Mario and Adrian A.jpg" width={'100%'} />
+            <img src="/images/Mario and Adrian A.jpg" width={'100%'} alt="Mario and Adrian"/>
         </section>
     );
 };
