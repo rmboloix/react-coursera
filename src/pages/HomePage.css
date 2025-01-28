@@ -8,6 +8,18 @@
     --background: #edefee;
 }
 
+@media (max-width: 720px) {
+    header {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 540px) {
+    header nav ul {
+        flex-direction: column;
+    }
+}
+
 h1,
 h2,
 h3,
