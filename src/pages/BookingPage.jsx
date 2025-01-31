@@ -20,7 +20,7 @@ const ALL_TIMES = [
 export const initializeTimes = () => {
     return {
         availableTimesByDate: ALL_TIMES,
-    }
+    };
 };
 
 export const updateTimes = (state, action) => {
@@ -57,7 +57,7 @@ export const updateTimes = (state, action) => {
 // };
 
 export const BookingPage = () => {
-    const [state, dispatch] = useReducer(updateTimes, null , initializeTimes);
+    const [state, dispatch] = useReducer(updateTimes, null, initializeTimes);
 
     const bookTime = (time) => {
         dispatch({ type: 'BOOK', payload: { time } });

@@ -1,18 +1,39 @@
-import { render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { BookingPage, initializeTimes, updateTimes } from './BookingPage';
 
-test('Booking Page renders properly', () => {
-    render(<BookingPage />);
+describe('Booking Page', () => {
+    afterEach(() => {
+        jest.restoreAllMocks();
+    });
 
-    const heading = screen.getByTestId('booking-title');
-    expect(heading).toBeInTheDocument();
-    expect(heading).toHaveTextContent('Book your table');
+    test('Booking Page renders properly', () => {
+        render(<BookingPage />);
 
-    const bookingForm = screen.getByTestId('booking-form');
-    expect(bookingForm).toBeInTheDocument();
+        const heading = screen.getByTestId('booking-title');
+        expect(heading).toBeInTheDocument();
+        expect(heading).toHaveTextContent('Book your table');
+
+        const bookingForm = screen.getByTestId('booking-form');
+        expect(bookingForm).toBeInTheDocument();
+    });
+
+    test('Booking form submit properly', async () => {
+        render(<BookingPage />);
+        const submitButton = screen.getByText('Make your reservation');
+        expect(submitButton).toBeInTheDocument();
+
+        waitFor(() => {
+            const time = screen.getByText('17.00');
+            expect(time).toBeInTheDocument();
+        })
+
+        fireEvent.click(submitButton);
+
+        expect(screen.getByText('17.00')).not.toHaveClass('available');
+    });
 });
 
-describe('Booking Page', () => {
+describe('reducer function', () => {
     test('initializeTimes function', () => {
         const data = initializeTimes();
 
@@ -29,9 +50,7 @@ describe('Booking Page', () => {
             ],
         });
     });
-});
 
-describe('updateTimes function', () => {
     test('change date', () => {
         const newState = updateTimes(
             { availableTimesByDate: ['17.00', '18.00', '19.00', '20.00'] },
