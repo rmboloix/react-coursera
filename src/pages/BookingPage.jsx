@@ -17,11 +17,13 @@ const ALL_TIMES = [
     '23.00',
 ];
 
-const initializeTimes = () => {
-    return ALL_TIMES;
+export const initializeTimes = () => {
+    return {
+        availableTimesByDate: ALL_TIMES,
+    }
 };
 
-const availableTimesReducer = (state, action) => {
+export const updateTimes = (state, action) => {
     switch (action.type) {
         case 'BOOK':
             const { time } = action.payload;
@@ -32,11 +34,8 @@ const availableTimesReducer = (state, action) => {
                 ),
             };
         case 'CHANGE_DATE':
-            // const { date } = action.payload;
-            return {
-                ...state,
-                availableTimesByDate: initializeTimes(),
-            };
+            const { date } = action.payload;
+            return initializeTimes(date);
         default:
             throw new Error('action not found');
     }
@@ -58,9 +57,7 @@ const availableTimesReducer = (state, action) => {
 // };
 
 export const BookingPage = () => {
-    const [state, dispatch] = useReducer(availableTimesReducer, {
-        availableTimesByDate: initializeTimes(),
-    });
+    const [state, dispatch] = useReducer(updateTimes, null , initializeTimes);
 
     const bookTime = (time) => {
         dispatch({ type: 'BOOK', payload: { time } });
