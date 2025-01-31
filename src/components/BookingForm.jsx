@@ -34,7 +34,7 @@ export const BookingForm = ({ availableTimes, bookTime, updateDate }) => {
     }, [availableTimes]);
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} data-testid="booking-form">
             <label htmlFor="res-date">Choose date</label>
             <input
                 type="date"
