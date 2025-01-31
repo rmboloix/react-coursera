@@ -1,10 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-const AVAILABLES_TIMES = ['17.00', '16.00', '18.00', '19.00', '20.00', '21.00'];
-
-export const BookingForm = () => {
+export const BookingForm = ({ availableTimes, bookTime, updateDate }) => {
     const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
-    const [time, setTime] = useState('21.00');
+    const [time, setTime] = useState(availableTimes[0]);
     const [guests, setGuests] = useState(1);
     const [occasion, setOccasion] = useState('none');
 
@@ -14,6 +12,7 @@ export const BookingForm = () => {
 
     const handleChangeDate = (e) => {
         setDate(e.target.value);
+        updateDate(e.target.value);
     };
 
     const handleChangeOccasion = (e) => {
@@ -27,8 +26,12 @@ export const BookingForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         e.stopPropagation();
-        console.log(date, time, guests, occasion);
+        bookTime(time);
     };
+
+    useEffect(() => {
+        setTime(availableTimes[0]);
+    }, [availableTimes]);
 
     return (
         <form onSubmit={handleSubmit}>
@@ -42,7 +45,7 @@ export const BookingForm = () => {
             />
             <label htmlFor="res-time">Choose time</label>
             <select id="res-time" value={time} onChange={handleChangeTime}>
-                {AVAILABLES_TIMES.map((time) => (
+                {availableTimes.map((time) => (
                     <option value={time} key={time}>
                         {time}
                     </option>
