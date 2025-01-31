@@ -25,6 +25,7 @@ describe('Booking Page', () => {
         waitFor(() => {
             const time = screen.getByText('17.00');
             expect(time).toBeInTheDocument();
+            expect(time).toHaveClass('available');
         })
 
         fireEvent.click(submitButton);
