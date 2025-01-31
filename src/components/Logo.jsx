@@ -1,6 +1,6 @@
 export const Logo = () => {
     return (
-        <a class="logo" href="/">
+        <a className="logo" href="/">
             <img
                 height={60}
                 src="/images/Logo.svg"

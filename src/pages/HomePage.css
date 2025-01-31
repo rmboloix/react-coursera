@@ -305,3 +305,19 @@ footer nav ul li.active {
     text-decoration: underline;
     text-decoration-thickness: 2px;
 }
+
+section.booking {
+    min-height: 80vh;
+    background-color: var(--secondary-color-B);
+    padding: 20px;
+}
+
+section.booking h1 {
+    color: var(--primary-color-A);
+}
+
+section.booking form {
+    display: grid;
+    max-width: 200px;
+    gap: 20px;
+}

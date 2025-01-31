@@ -2,7 +2,7 @@ export const Footer = () => {
     return (
         <footer className="footer-grid">
             <div>
-                <a class="logo" href="/">
+                <a className="logo" href="/">
                     <img height={60} src="/images/logo2.png" alt="Logo" />
                 </a>
             </div>
