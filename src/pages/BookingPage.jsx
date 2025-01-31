@@ -75,7 +75,7 @@ export const BookingPage = () => {
         <main className="container">
             <Header />
             <main className="booking">
-                <h1>Book your table</h1>
+                <h1 data-testid="booking-title">Book your table</h1>
                 <section className="booking">
                     <div className="booking-slot-list">
                         {ALL_TIMES.map((time) => (
