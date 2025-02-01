@@ -1,5 +1,20 @@
-import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { BookingPage, initializeTimes, updateTimes } from './BookingPage';
+
+jest.mock('./../api/api', () => ({
+    fetchAPI: () => {
+        return [
+            '17:00',
+            '16:00',
+            '18:00',
+            '19:00',
+            '20:00',
+            '21:00',
+            '22:00',
+            '23:00',
+        ];
+    },
+}));
 
 describe('Booking Page', () => {
     afterEach(() => {
@@ -23,14 +38,14 @@ describe('Booking Page', () => {
         expect(submitButton).toBeInTheDocument();
 
         waitFor(() => {
-            const time = screen.getByText('17.00');
+            const time = screen.getByText('17:00');
             expect(time).toBeInTheDocument();
             expect(time).toHaveClass('available');
-        })
+        });
 
         fireEvent.click(submitButton);
 
-        expect(screen.getByText('17.00')).not.toHaveClass('available');
+        expect(screen.getByText('17:00')).not.toHaveClass('available');
     });
 });
 
@@ -40,46 +55,60 @@ describe('reducer function', () => {
 
         expect(data).toEqual({
             availableTimesByDate: [
-                '17.00',
-                '16.00',
-                '18.00',
-                '19.00',
-                '20.00',
-                '21.00',
-                '22.00',
-                '23.00',
+                '17:00',
+                '16:00',
+                '18:00',
+                '19:00',
+                '20:00',
+                '21:00',
+                '22:00',
+                '23:00',
             ],
         });
     });
 
     test('change date', () => {
         const newState = updateTimes(
-            { availableTimesByDate: ['17.00', '18.00', '19.00', '20.00'] },
-            { type: 'CHANGE_DATE', payload: { date: '2025-10-10' } }
+            { availableTimesByDate: ['17:00', '18:00', '19:00', '20:00'] },
+            {
+                type: 'CHANGE_DATE',
+                payload: {
+                    availableTimesByDate: [
+                        '17:00',
+                        '16:00',
+                        '18:00',
+                        '19:00',
+                        '20:00',
+                        '21:00',
+                        '22:00',
+                        '23:00',
+                    ],
+                },
+            }
         );
 
         expect(newState).toEqual({
             availableTimesByDate: [
-                '17.00',
-                '16.00',
-                '18.00',
-                '19.00',
-                '20.00',
-                '21.00',
-                '22.00',
-                '23.00',
+                '17:00',
+                '16:00',
+                '18:00',
+                '19:00',
+                '20:00',
+                '21:00',
+                '22:00',
+                '23:00',
             ],
         });
     });
 
     test('update time', () => {
         const newState = updateTimes(
-            { availableTimesByDate: ['17.00', '18.00', '19.00', '20.00'] },
-            { type: 'BOOK', payload: { time: '18.00' } }
+            { availableTimesByDate: ['17:00', '18:00', '19:00', '20:00'] },
+            { type: 'BOOK', payload: { time: '18:00' } }
         );
 
         expect(newState).toEqual({
-            availableTimesByDate: ['17.00', '19.00', '20.00'],
+            availableTimesByDate: ['17:00', '19:00', '20:00'],
         });
     });
 });
