@@ -38,6 +38,7 @@ export const BookingForm = ({ availableTimes, updateDate, onSubmitForm }) => {
         <form onSubmit={handleSubmit} data-testid="booking-form">
             <label htmlFor="res-date">Choose date</label>
             <input
+                required
                 type="date"
                 id="res-date"
                 name="res-date"
@@ -45,7 +46,13 @@ export const BookingForm = ({ availableTimes, updateDate, onSubmitForm }) => {
                 value={date}
             />
             <label htmlFor="res-time">Choose time</label>
-            <select id="res-time" name="res-time" value={time} onChange={handleChangeTime}>
+            <select
+                id="res-time"
+                name="res-time"
+                value={time}
+                onChange={handleChangeTime}
+                required
+            >
                 {availableTimes.map((time) => (
                     <option value={time} key={time}>
                         {time}
@@ -62,6 +69,7 @@ export const BookingForm = ({ availableTimes, updateDate, onSubmitForm }) => {
                 name="res-guests"
                 value={guests}
                 onChange={handleChangeGuests}
+                required
             />
             <label htmlFor="res-occasion">Occasion</label>
             <select
@@ -74,7 +82,6 @@ export const BookingForm = ({ availableTimes, updateDate, onSubmitForm }) => {
                 <option value="birthday">Birthday</option>
                 <option value="anniversary">Anniversary</option>
             </select>
-            {time} {date} {guests} {occasion}
             <input
                 type="submit"
                 value="Make your reservation"

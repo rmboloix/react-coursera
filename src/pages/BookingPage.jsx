@@ -58,12 +58,15 @@ export const BookingPage = () => {
         if (confirmed) {
             // navigate('/confirmation');
             window.location.href = `/confirmation`;
-            localStorage.setItem('reservation', JSON.stringify({
-                time: formData.get('res-time'),
-                date: formData.get('res-date'),
-                guests: formData.get('res-guests'),
-                occasion: formData.get('res-occasion'),
-            }));
+            localStorage.setItem(
+                'reservation',
+                JSON.stringify({
+                    time: formData.get('res-time'),
+                    date: formData.get('res-date'),
+                    guests: formData.get('res-guests'),
+                    occasion: formData.get('res-occasion'),
+                })
+            );
         }
     };
 
@@ -73,16 +76,19 @@ export const BookingPage = () => {
             <main className="booking">
                 <h1 data-testid="booking-title">Book your table</h1>
                 <section className="booking">
-                    <div className="booking-slot-list">
-                        {getAllTimes().map((time) => (
-                            <BookingSlot
-                                key={time}
-                                time={time}
-                                available={state.availableTimesByDate.includes(
-                                    time
-                                )}
-                            />
-                        ))}
+                    <div className='booking-slot-container'>
+                        <div className='label'>Available Hours:</div>
+                        <div className="booking-slot-list">
+                            {getAllTimes().map((time) => (
+                                <BookingSlot
+                                    key={time}
+                                    time={time}
+                                    available={state.availableTimesByDate.includes(
+                                        time
+                                    )}
+                                />
+                            ))}
+                        </div>
                     </div>
                     <BookingForm
                         availableTimes={state.availableTimesByDate}
