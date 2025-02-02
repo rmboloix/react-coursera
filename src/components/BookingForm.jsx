@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export const BookingForm = ({ availableTimes, bookTime, updateDate }) => {
+export const BookingForm = ({ availableTimes, updateDate, onSubmitForm }) => {
     const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
     const [time, setTime] = useState(availableTimes[0]);
     const [guests, setGuests] = useState(1);
@@ -26,7 +26,8 @@ export const BookingForm = ({ availableTimes, bookTime, updateDate }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         e.stopPropagation();
-        bookTime(time);
+        const formData = new FormData(e.target);
+        onSubmitForm(formData);
     };
 
     useEffect(() => {
@@ -44,26 +45,28 @@ export const BookingForm = ({ availableTimes, bookTime, updateDate }) => {
                 value={date}
             />
             <label htmlFor="res-time">Choose time</label>
-            <select id="res-time" value={time} onChange={handleChangeTime}>
+            <select id="res-time" name="res-time" value={time} onChange={handleChangeTime}>
                 {availableTimes.map((time) => (
                     <option value={time} key={time}>
                         {time}
                     </option>
                 ))}
             </select>
-            <label htmlFor="guests">Number of guests</label>
+            <label htmlFor="res-guests">Number of guests</label>
             <input
                 type="number"
                 placeholder="1"
                 min="1"
                 max="10"
-                id="guests"
+                id="res-guests"
+                name="res-guests"
                 value={guests}
                 onChange={handleChangeGuests}
             />
-            <label htmlFor="occasion">Occasion</label>
+            <label htmlFor="res-occasion">Occasion</label>
             <select
-                id="occasion"
+                id="res-occasion"
+                name="res-occasion"
                 value={occasion}
                 onChange={handleChangeOccasion}
             >

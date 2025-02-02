@@ -1,10 +1,11 @@
-import { fetchAPI } from '../api/api';
+import { fetchAPI, submitAPI } from '../api/api';
 import { BookingForm } from '../components/BookingForm';
 import { BookingSlot } from '../components/BookingSlot';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 import './HomePage.css';
 import { useReducer } from 'react';
+// import { useNavigate } from "react-router-dom";
 
 const getAllTimes = () => {
     const result = [];
@@ -29,14 +30,6 @@ const dateFromString = (dateString) => {
 
 export const updateTimes = (state, action) => {
     switch (action.type) {
-        case 'BOOK':
-            const { time } = action.payload;
-            return {
-                ...state,
-                availableTimesByDate: state.availableTimesByDate.filter(
-                    (t) => t !== time
-                ),
-            };
         case 'CHANGE_DATE':
             const { availableTimesByDate } = action.payload;
             return {
@@ -50,16 +43,22 @@ export const updateTimes = (state, action) => {
 
 export const BookingPage = () => {
     const [state, dispatch] = useReducer(updateTimes, null, initializeTimes);
-
-    const bookTime = (time) => {
-        dispatch({ type: 'BOOK', payload: { time } });
-    };
+    // const navigate = useNavigate(); //For some reason I cannot use useNavigate in testing with create-react-app and jest.
 
     const handleUpdateDate = (dateString) => {
         dispatch({
             type: 'CHANGE_DATE',
             payload: initializeTimes(dateFromString(dateString)),
         });
+    };
+
+    const handleOnSubmitForm = (formData) => {
+        const confirmed = submitAPI(formData);
+
+        if (confirmed) {
+            // navigate('/confirmation');
+            window.location.href = '/confirmation';
+        }
     };
 
     return (
@@ -82,7 +81,7 @@ export const BookingPage = () => {
                     <BookingForm
                         availableTimes={state.availableTimesByDate}
                         updateDate={handleUpdateDate}
-                        bookTime={bookTime}
+                        onSubmitForm={handleOnSubmitForm}
                     />
                 </section>
             </main>

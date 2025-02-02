@@ -1,20 +1,16 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { BookingPage, initializeTimes, updateTimes } from './BookingPage';
+import * as api from '../api/api';
 
-jest.mock('./../api/api', () => ({
-    fetchAPI: () => {
-        return [
-            '17:00',
-            '16:00',
-            '18:00',
-            '19:00',
-            '20:00',
-            '21:00',
-            '22:00',
-            '23:00',
-        ];
-    },
-}));
+delete window.location;
+
+global.location = {
+    ...window.location,
+    assign: jest.fn(),
+    replace: jest.fn(),
+    reload: jest.fn(),
+    href: '',
+};
 
 describe('Booking Page', () => {
     afterEach(() => {
@@ -34,23 +30,38 @@ describe('Booking Page', () => {
 
     test('Booking form submit properly', async () => {
         render(<BookingPage />);
-        const submitButton = screen.getByText('Make your reservation');
-        expect(submitButton).toBeInTheDocument();
 
-        waitFor(() => {
-            const time = screen.getByText('17:00');
-            expect(time).toBeInTheDocument();
-            expect(time).toHaveClass('available');
-        });
+        const submitAPISpy = jest
+            .spyOn(api, 'submitAPI')
+            .mockImplementation(() => true);
+
+        const submitButton = screen.getByText('Make your reservation');
+
+        await waitFor(() => {
+            expect(submitButton).toBeInTheDocument();
+        })
 
         fireEvent.click(submitButton);
-
-        expect(screen.getByText('17:00')).not.toHaveClass('available');
+        expect(submitAPISpy).toHaveBeenCalled();
+        expect(global.location.href).toEqual('/confirmation');
     });
 });
 
 describe('reducer function', () => {
     test('initializeTimes function', () => {
+        const fetchAPISpy = jest
+            .spyOn(api, 'fetchAPI')
+            .mockImplementation(() => ([
+                '17:00',
+                '16:00',
+                '18:00',
+                '19:00',
+                '20:00',
+                '21:00',
+                '22:00',
+                '23:00',
+            ]));
+
         const data = initializeTimes();
 
         expect(data).toEqual({
@@ -98,17 +109,6 @@ describe('reducer function', () => {
                 '22:00',
                 '23:00',
             ],
-        });
-    });
-
-    test('update time', () => {
-        const newState = updateTimes(
-            { availableTimesByDate: ['17:00', '18:00', '19:00', '20:00'] },
-            { type: 'BOOK', payload: { time: '18:00' } }
-        );
-
-        expect(newState).toEqual({
-            availableTimesByDate: ['17:00', '19:00', '20:00'],
         });
     });
 });

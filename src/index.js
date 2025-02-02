@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import { HomePage } from './pages/HomePage';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { BookingPage } from './pages/BookingPage';
+import { ConfirmationPage } from './pages/ConfirmationPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,6 +14,10 @@ root.render(
             <Routes>
                  <Route path="/" element={<HomePage />}></Route>
                 <Route path="/booking" element={<BookingPage />}></Route>
+                <Route
+                    path="/confirmation"
+                    element={<ConfirmationPage />}
+                ></Route>
             </Routes>
         </BrowserRouter>
     </React.StrictMode>
