@@ -6,6 +6,10 @@ export const BookingForm = ({ availableTimes, updateDate, onSubmitForm }) => {
     const [guests, setGuests] = useState(1);
     const [occasion, setOccasion] = useState('none');
 
+    const timeValid = time !== undefined;
+    const guestValid = guests >= 1 && guests <= 10;
+    const formValid = timeValid && guestValid;
+
     const handleChangeTime = (e) => {
         setTime(e.target.value);
     };
@@ -47,7 +51,7 @@ export const BookingForm = ({ availableTimes, updateDate, onSubmitForm }) => {
             />
             <label htmlFor="res-time">Choose time</label>
 
-            {availableTimes.length > 0 ?(
+            {availableTimes.length > 0 ? (
                 <select
                     id="res-time"
                     name="res-time"
@@ -61,9 +65,18 @@ export const BookingForm = ({ availableTimes, updateDate, onSubmitForm }) => {
                         </option>
                     ))}
                 </select>
-            ) : <div className='error'>Sorry, there are not available hours for this day.</div>}
-
+            ) : (
+                <div className="error">
+                    Sorry, there are not available hours for this day. Please
+                    select another day.
+                </div>
+            )}
             <label htmlFor="res-guests">Number of guests</label>
+            {guestValid === false && (
+                <div className="error">
+                    Please select a value between 1 and 10.
+                </div>
+            )}
             <input
                 type="number"
                 placeholder="1"
@@ -90,6 +103,7 @@ export const BookingForm = ({ availableTimes, updateDate, onSubmitForm }) => {
                 type="submit"
                 value="Make your reservation"
                 className="button"
+                disabled={!formValid}
             />
         </form>
     );

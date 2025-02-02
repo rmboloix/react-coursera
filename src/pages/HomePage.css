@@ -314,11 +314,11 @@ main.booking h1 {
 
 section.booking {
     min-height: 50vh;
-    /* background-color: var(--secondary-color-B); */
     padding: 20px;
     display: flex;
     gap: 20px;
     align-items: start;
+    justify-content: center;
 }
 
 section.booking form {
@@ -354,6 +354,7 @@ section.booking form select:focus {
 .error {
     color: crimson;
     font-weight: bold;
+    padding: 5px;
 }
 
 section.booking form label,
