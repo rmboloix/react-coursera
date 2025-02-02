@@ -76,6 +76,8 @@ describe('reducer function', () => {
                 '23:00',
             ],
         });
+
+        expect(fetchAPISpy).toHaveBeenCalled();
     });
 
     test('change date', () => {
