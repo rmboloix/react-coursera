@@ -46,19 +46,23 @@ export const BookingForm = ({ availableTimes, updateDate, onSubmitForm }) => {
                 value={date}
             />
             <label htmlFor="res-time">Choose time</label>
-            <select
-                id="res-time"
-                name="res-time"
-                value={time}
-                onChange={handleChangeTime}
-                required
-            >
-                {availableTimes.map((time) => (
-                    <option value={time} key={time}>
-                        {time}
-                    </option>
-                ))}
-            </select>
+
+            {availableTimes.length > 0 ?(
+                <select
+                    id="res-time"
+                    name="res-time"
+                    value={time}
+                    onChange={handleChangeTime}
+                    required
+                >
+                    {availableTimes.map((time) => (
+                        <option value={time} key={time}>
+                            {time}
+                        </option>
+                    ))}
+                </select>
+            ) : <div className='error'>Sorry, there are not available hours for this day.</div>}
+
             <label htmlFor="res-guests">Number of guests</label>
             <input
                 type="number"

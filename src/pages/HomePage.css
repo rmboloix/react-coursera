@@ -333,21 +333,31 @@ section.booking form input[type='submit']:disabled {
 
 section.booking form input[type='submit'] {
     margin-top: 20px;
+    background-color: var(--primary-color-B);
 }
 
-section.booking form input {
+section.booking form input,
+section.booking form select {
     border-radius: 16px;
     padding: 10px;
     color: var(--primary-color-A);
     font-weight: bold;
+    background-color: white;
 }
 
 section.booking form input:focus-visible,
-section.booking form input:focus {
+section.booking form input:focus,
+section.booking form select:focus {
     outline: 4px solid var(--primary-color-A);
 }
 
-section.booking form label, .label {
+.error {
+    color: crimson;
+    font-weight: bold;
+}
+
+section.booking form label,
+.label {
     color: var(--primary-color-A);
     font-weight: bold;
     padding: 22px 0 6px;
