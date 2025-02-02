@@ -55,7 +55,7 @@ export const BookingForm = ({ availableTimes, updateDate, onSubmitForm }) => {
                 <select
                     id="res-time"
                     name="res-time"
-                    data-testid='res-time'
+                    data-testid="res-time"
                     value={time}
                     onChange={handleChangeTime}
                     required
@@ -105,6 +105,7 @@ export const BookingForm = ({ availableTimes, updateDate, onSubmitForm }) => {
                 value="Make your reservation"
                 className="button"
                 disabled={!formValid}
+                aria-label="On Click"
             />
         </form>
     );
