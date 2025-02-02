@@ -352,3 +352,8 @@ section.booking form {
     flex-wrap: wrap;
     width: 50%;
 }
+
+.confirmation {
+    min-height: 50vh;
+    padding: 20px;
+}

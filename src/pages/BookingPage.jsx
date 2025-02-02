@@ -57,7 +57,13 @@ export const BookingPage = () => {
 
         if (confirmed) {
             // navigate('/confirmation');
-            window.location.href = '/confirmation';
+            window.location.href = `/confirmation`;
+            localStorage.setItem('reservation', JSON.stringify({
+                time: formData.get('res-time'),
+                date: formData.get('res-date'),
+                guests: formData.get('res-guests'),
+                occasion: formData.get('res-occasion'),
+            }));
         }
     };
 
