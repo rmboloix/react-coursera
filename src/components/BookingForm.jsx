@@ -55,6 +55,7 @@ export const BookingForm = ({ availableTimes, updateDate, onSubmitForm }) => {
                 <select
                     id="res-time"
                     name="res-time"
+                    data-testid='res-time'
                     value={time}
                     onChange={handleChangeTime}
                     required
@@ -66,14 +67,14 @@ export const BookingForm = ({ availableTimes, updateDate, onSubmitForm }) => {
                     ))}
                 </select>
             ) : (
-                <div className="error">
+                <div className="error" data-testid="error-time">
                     Sorry, there are not available hours for this day. Please
                     select another day.
                 </div>
             )}
             <label htmlFor="res-guests">Number of guests</label>
             {guestValid === false && (
-                <div className="error">
+                <div className="error" data-testid="error-guests">
                     Please select a value between 1 and 10.
                 </div>
             )}
