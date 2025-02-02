@@ -368,10 +368,10 @@ section.booking form label,
     padding: 10px 20px;
     font-size: 16px;
     background-color: var(--background);
-    border: 4px solid #b7b7b7;
+    border: 1px solid #b7b7b7;
     color: var(--primary-color-A);
     font-weight: bold;
-    border-radius: 16px;
+    border-radius: 4px;
     width: fit-content;
     user-select: none;
 }
@@ -379,7 +379,7 @@ section.booking form label,
 .booking-slot.available {
     background-color: var(--primary-color-B);
     color: var(--primary-color-A);
-    border: 4px solid transparent;
+    border: 1px solid transparent;
 }
 
 .booking-slot-container {
